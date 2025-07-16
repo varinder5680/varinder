@@ -1,0 +1,10 @@
+FROM ubuntu:22.04 
+LABEL name="varinder"
+LABEL email="varindernishad568@gmail.com"
+ENV NAME="Nishad" 
+RUN useradd -m $NAME 
+WORKDIR /home/$NAME
+RUN touch /tmp/abc.txt && chmod 777 /tmp/abc.txt
+RUN whoami > /tmp/abc.txt
+USER $NAME 
+RUN whoami >> /tmp/abc.txt
